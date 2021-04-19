@@ -3,8 +3,9 @@
     $hp = $_POST['hp'];
     $banyak = $_POST['banyak'];
 
-    if(mail("pujangga123@gmail.com","KEHADIRAN:".$nama,"$nama,$hp,$banyak")) {
-        die("ok");
-    } else {
-        die("no");
-    }
+	$f = fopen("daftar.txt","a+");
+	fwrite($f,"$nama,$hp,$banyak\n");
+	fclose($f);
+
+	echo "ok";
+	
